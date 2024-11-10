@@ -155,7 +155,7 @@ with open(file_to_output, 'w', newline='') as txtfile:
     txtfile.write(f"Total Votes: {total_votes:,}\n")
     txtfile.write(f"-----------------------------------------\n")
 
-# Write each candidate's vote count and percentage.  Help sources from chatGPT to troubleshoot code to write into text file.  Was a licky more tricky than the PyBank example. 
+# Write each candidate's vote count and percentage.  Help sources from chatGPT and https://docs.python.org/3/library/csv.html to troubleshoot code to write into text file.  Was a licky more tricky than the PyBank example. 
     for candidate in candidate_votes:
         txtfile.write(f"{candidate}: {candidate_percentages[candidate]:.3f}% ({candidate_votes[candidate]:,})\n")
 
