@@ -1,5 +1,3 @@
-# -*- coding: UTF-8 -*-
-"""PyBank Homework Starter File."""
 
 # Dependencies
 import csv
@@ -18,7 +16,7 @@ profit_loss_change = []
 greatest_inc = 0
 greatest_dec = 0
 
-# Open and read the csv
+# Open and read the csv file
 with open(file_to_load) as financial_data:
     reader = csv.reader(financial_data)
 
@@ -31,18 +29,18 @@ with open(file_to_load) as financial_data:
     # Track the total and net change
     total_months += 1
     total_net += int(first_row[1])
-    previous_profit_loss = int(first_row[1])
+    prev_profit_loss = int(first_row[1])
 
     # Process each row of data
     for row in reader:
         total_months += 1
         total_net += int(row[1])
-        # Track the total
+        # Track total amount
         start_profit_loss = int(row[1])
         #declare the change in position of the data
-        change_pos_data = start_profit_loss - previous_profit_loss
+        change_pos_data = start_profit_loss - prev_profit_loss
 
-        # Track the net change
+        # Track the net change, using append to account for the change
         profit_loss_change.append(change_pos_data)
 
         # Calculate the greatest increase in profits (month and amount)
@@ -55,12 +53,15 @@ with open(file_to_load) as financial_data:
             greatest_dec = change_pos_data
             greatest_dec_month = row[0]
 
-        # Calculate the average net change across the months
-        previous_profit_loss = start_profit_loss
+        prev_profit_loss = start_profit_loss
 
+# Calculate the average net change across the months
 average_change = sum(profit_loss_change) / len(profit_loss_change) if profit_loss_change else 0
-# Generate the output summary - using \n to format each action into a new line
-final_summary_data = ("Financial Analysis\n" f"----------------------------\n" 
+# Generate the output summary - using \n to format each action into a new line.
+# Add formatting to include commas and decimals so numbers are more readable
+final_summary_data = (
+    f"Financial Analysis\n" 
+    f"----------------------------\n" 
     f"Total Months: {total_months}\n"
     f"Total: ${total_net:,.2f}\n"
     f"Average Change: ${average_change:,.2f}\n"
@@ -68,9 +69,9 @@ final_summary_data = ("Financial Analysis\n" f"----------------------------\n"
     f"Greatest Decrease in Profits: {greatest_dec_month} (${greatest_dec:,.2f})\n"
 )
 
-# Output the analysis to the text file
+# Output the analysis to the external text file for submission
 with open(file_to_output, "w") as output_file:
     output_file.write(final_summary_data)
 
-# Print the analysis to the terminal as well
+# print so it can be effectively displayed in the Terminal window
 print(final_summary_data)
