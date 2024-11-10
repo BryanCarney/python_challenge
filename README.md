@@ -96,7 +96,7 @@
 import csv
 import os
 
-# Files to load and output (update with correct file paths)
+# Files to load and generate output
 
 # Input file path
 file_to_load = os.path.join("Resources", "election_data.csv")
