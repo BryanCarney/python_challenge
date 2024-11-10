@@ -32,10 +32,10 @@
     with open(file_to_load) as financial_data:
     reader = csv.reader(financial_data)
 
-    # Skip the header row
+# Skip the header row
     header = next(reader)
 
-    # Extract first row to avoid appending to net_change_list
+# Extract first row to avoid appending to net_change_list
     first_row = next(reader)
 
 
@@ -54,7 +54,7 @@
 # declare the change in position of the data
         change_pos_data = start_profit_loss - prev_profit_loss
 
-# Track the net change, using append to account for the change
+# Track the net change, using append to account for the change, "append" utilization also sourced from Giraffe Acadamy course
         profit_loss_change.append(change_pos_data)
 
 # Calculate the greatest increase in profits (month and amount)
@@ -72,7 +72,7 @@
 # Calculate the average net change across the months - ChatGPT assistance 
     average_change = sum(profit_loss_change) / len(profit_loss_change) if profit_loss_change else 0
 # Generate the output summary - using \n to format each action into a new line.
-# Add formatting to include commas and decimals so numbers are more readable - substack assistance
+# Add formatting to include commas and decimals so numbers are more readable - substack assistance & based on course example 
     final_summary_data = (
     f"Financial Analysis\n" 
     f"----------------------------\n" 
