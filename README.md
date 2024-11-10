@@ -1,6 +1,6 @@
 
 
-# python_challenge PyBank
+# python_challenge PyBank-------------------------------------------------
     Unable to push to github as this was not covered in class yet due to technical issues with Git, so files were uploaded manually 
 
 # Dependencies
@@ -91,7 +91,7 @@
     print(final_summary_data)
 
 
-# python_challenge PyBank-------------------------------------------------
+# python_challenge PyPoll-------------------------------------------------
 # Import necessary modules - used from PyBank starter code
 import csv
 import os
