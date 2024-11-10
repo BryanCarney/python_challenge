@@ -62,7 +62,7 @@
             greatest_inc = change_pos_data
             greatest_inc_month = row[0]
 
-# Calculate the greatest decrease in losses (month and amount)
+# Calculate the greatest decrease in losses (month and amount) 
         if change_pos_data < greatest_dec:
             greatest_dec = change_pos_data
             greatest_dec_month = row[0]
@@ -72,7 +72,7 @@
 # Calculate the average net change across the months - ChatGPT assistance 
     average_change = sum(profit_loss_change) / len(profit_loss_change) if profit_loss_change else 0
 # Generate the output summary - using \n to format each action into a new line.
-# Add formatting to include commas and decimals so numbers are more readable - substack assistance & based on course example 
+# Add formatting to include commas and decimals so numbers are more readable - help from https://realpython.com/python-f-strings/
     final_summary_data = (
     f"Financial Analysis\n" 
     f"----------------------------\n" 
