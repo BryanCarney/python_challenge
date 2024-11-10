@@ -28,7 +28,7 @@ with open(file_to_load, newline='') as election_data:
 
     # Created the "For" Loop so the code could through each row of the dataset and then process it
     for row in reader:
-# Increment the total vote count - same principle used in PyBank code
+# Add on top of the total vote count - same principle used in PyBank code
         total_votes += 1  
 
 # Get the candidate's name from the row and since the candidate name is in the 3rd column, it is directed there. 
@@ -61,7 +61,7 @@ with open(file_to_output, 'w', newline='') as txtfile:
     txtfile.write(f"Total Votes: {total_votes:,}\n")
     txtfile.write(f"-----------------------------------------\n")
 
-# Write each candidate's vote count and percentage.  Help sources from chatGPT to troubleshoot code to write into text file.  Was a licky more tricky than the PyBank example. 
+# Write each candidate's vote count and percentage.  Help sources from https://docs.python.org/3/library/csv.html to troubleshoot code to write into text file.  Was a licky more tricky than the PyBank example.
     for candidate in candidate_votes:
         txtfile.write(f"{candidate}: {candidate_percentages[candidate]:.3f}% ({candidate_votes[candidate]:,})\n")
 
@@ -70,6 +70,6 @@ with open(file_to_output, 'w', newline='') as txtfile:
     txtfile.write(f"Congratulations, {winning_candidate}!\n")
     txtfile.write(f"-----------------------------------------\n")
 
-# Optional: Print the results to the console (for debugging or quick review)
+# Help sources from chatGPT as the simple logic to use print(file_to_output) did not allow me to display in terminal window
 with open(file_to_output, 'r') as txtfile:
     print(txtfile.read())
